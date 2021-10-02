@@ -48,7 +48,8 @@ var classes = { // ID: { questionNumber[int]: { questionID[int]: usersCompleted[
         
         hands: {
             //"username": true
-        }
+        },
+        messages: []
     }/*,
 
     test: {
@@ -293,6 +294,34 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
             }
         }, obj.time * 1000); // Time for question (seconds) * 1000 ms
         res.json(true)
+    }
+})
+
+/*  
+    MESSAGING FUNCTIONS API
+    ------------------
+*/
+
+blinkapp.get("/api/messaging/create/:class/:username/:message", (req, res) => { // Set the role of a user
+    let newclass = req.params.class
+    let username = req.params.username
+    let message = req.params.message
+    
+    if (classes[newclass]) {
+        let user = users[username]
+        classes[newclass]["messages"].push({ user, message })
+    }else{
+        res.json("Class does not exist!")
+    }
+})
+
+blinkapp.get("/api/messaging/pull/:class", (req, res) => { // Set the role of a user
+    let newclass = req.params.class
+
+    if (classes[newclass]) {
+        res.json(classes[newclass]["messages"])
+    }else{
+        res.json("Class does not exist!")
     }
 })
 

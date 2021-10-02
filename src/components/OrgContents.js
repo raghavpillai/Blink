@@ -1,5 +1,5 @@
 import React from "react";
-import "./OrgContents.css";
+import "../styles/OrgContents.css";
 import ClassItem from "./ClassItem";
 import img from "../images/class.jpg"
 

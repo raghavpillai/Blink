@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Chat from './components/Chat';
 import Home from './components/Home';
+import Organizations from './components/Organizations';
+import Test from './components/Test';
+import Call from './components/Call';
 import Login from './components/Login';
-import Organizations from './components/Organizations'
-import Test from './components/Test.js'
-import Messaging from './messaging'
+
 
 export default function App() {
   return (
@@ -23,7 +24,13 @@ export default function App() {
             <Link to="/organizations">Organizations</Link>
           </div>
           <div className="border-2 p-3 mx-2">
+            <Link to="/call">Call</Link>
+          </div>
+          <div className="border-2 p-3 mx-2">
             <Link to="/test">Test</Link>
+          </div>
+          <div className="border-2 p-3 mx-2">
+            <Link to="/login">Login</Link>
           </div>
         </div>
 
@@ -41,8 +48,14 @@ export default function App() {
         <Route path="/organizations">
           <Organizations />
         </Route>
-        <Route path="/organizations">
+        <Route path="/call">
+          <Call />
+        </Route>
+        <Route path="/test">
           <Test />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
     </Router>

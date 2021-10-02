@@ -1,13 +1,29 @@
 import React from "react";
+import avatar from '../images/emptyAvatar.png';
+import mike from '../images/mike.jpeg';
 
 
 export function StudentView(){
     return(
-        <div className = "flex flex-wrap flex-grow">
+        <div className = "flex flex-wrap flex-grow max-h-screen">
 
-            <section id="mainContent" className="px-6 py-3 lg:w-4/5 w-3/4">
+            <section id="mainContent" className="flex flex-wrap lg:w-4/5 w-3/4">
                 
-                <div className="font-bold text-2xl md:text-4xl lg:text-6xl">Big Heading</div>
+                <div className="w-full h-4/5">
+                    <div className="h-full bg-no-repeat bg-cover"style={{ backgroundImage: `url(${mike})` }}>
+                        .
+                    </div>
+                </div>
+                <div className="w-full h-1/5 bg-yellow-200 flex grid grid-cols-8">
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                    <img className="object-scale-down" src={avatar} alt="avatar" />
+                </div>
             </section>
 
             <section

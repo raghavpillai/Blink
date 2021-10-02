@@ -8,6 +8,8 @@ module.exports = {
       },
       height: {
         '0.7screen':'70vh',
+        '1/7':'14.29%',
+        '6/7':'85.71%',
       },
       animate: {
         fadeIn: "fadeIn 1s ease-in forwards"

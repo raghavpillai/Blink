@@ -43,7 +43,7 @@ function Home(){
                 <div className = "bg-white h-1/2 w-2/4 rounded-lg shadow-lg transform hover:scale-110 duration-700 ease-in-out">
                     <div className = "p-6 text-lg font-medium">
                         We are dedicated to bridging the gap between interactive learning and the online environment for students and teachers.
-                        Link strives to promote an enganging setting that follows in-person learning through real-time interactive classroom activities.
+                        Blink strives to promote an enganging setting that follows in-person learning through real-time interactive classroom activities.
                         With a more connective present, the horizons of the future becomes limitless.
                     </div>
                     <div className = "absolute bottom-0 bg-blue-100 w-full h-1/3 p-4 font-semibold">

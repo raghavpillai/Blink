@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import AgoraRTC from 'agora-rtc-sdk-ng'
-import useAgora from './useAgora'
-import MediaPlayer from './MediaPlayer'
+import React, { useState } from 'react';
+import AgoraRTC from 'agora-rtc-sdk-ng';
+import useAgora from './useAgora';
+import MediaPlayer from './MediaPlayer';
 
 const client = AgoraRTC.createClient({ codec: 'h264', mode: 'rtc' });
 
 function Call() {
-  const [ appid, setAppid ] = useState('')
-  const [ token, setToken ] = useState('')
-  const [ channel, setChannel ] = useState('')
+  const [ appid, setAppid ] = useState('');
+  const [ token, setToken ] = useState('');
+  const [ channel, setChannel ] = useState('');
   const {
     localAudioTrack, localVideoTrack, leave, join, joinState, remoteUsers
-  } = useAgora(client)
+  } = useAgora(client);
 
   return (
     <div className='call'>
@@ -44,7 +44,7 @@ function Call() {
           </div>))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Call
+export default Call;

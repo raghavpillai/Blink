@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
  
 import Test from './components/Test';
+import Chat from './components/Chat';
 // import Error from './components/Error';
 // import Navigation from './components/Navigation';
  
@@ -14,6 +15,7 @@ class App extends Component {
             <Switch>
              <Route path="/" component={Test} exact/>
              <Route path="/test" component={Test} exact/>
+             <Route path="/chat" component={Chat} exact/>
             <Route component={Error}/>
            </Switch>
         </div> 

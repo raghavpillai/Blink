@@ -5,6 +5,7 @@ import Chat from './components/Chat';
 import Home from './components/Home';
 import Login from './components/Login';
 import Organizations from './components/Organizations'
+import Test from './components/Test.js'
 // import Error from './components/Error';
 // import Navigation from './components/Navigation';
  
@@ -19,6 +20,7 @@ class App extends Component {
              <Route path="/login" component={Login} exact/>
              <Route path="/organizations" component={Organizations} exact/>
              <Route path="/chat" component={Chat} exact/>
+             <Route path="/test" component={Test} exact/>
             <Route component={Error}/>
            </Switch>
         </div> 

@@ -29,6 +29,7 @@ function Home() {
 
     return (
         <div>
+            <title>Blink - Intuitive Learning</title>
             <div className="h-screen bg-red-200">
                 <div className="absolute top-4/10 left-1/2 transform -translate-x-1/4">
                     <img className="w-1/2" src={LogoText} alt="Blink" />

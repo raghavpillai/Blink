@@ -105,15 +105,15 @@ blinkapp.get("/api/class/roster/:class", (req, res) => { // See class roster
 })
 
 blinkapp.get("/api/class/enroll/:class/:username", (req, res) => { // Enroll a student in a class [Username not UserID]
-    let newclass = req.params.class
+    let newClass = req.params.class
     let username = req.params.username
 
     if(users[username]) { // If user exists
         if(classes[newClass]) {  // If class exists
-            if (users[username]["classes"].includes(newclass)) {
+            if (users[username]["classes"].includes(newClass)) {
                 res.json("Already enrolled in class!")
             }else{ // User not in class
-                users[username]["classes"].push(newclass)
+                users[username]["classes"].push(newClass)
                 res.json( users[username]["classes"] )
             }
         }else{ // Class doesn't exist
@@ -161,12 +161,24 @@ blinkapp.get("/api/user/create/:username/:password/:displayname", (req, res) => 
     }
 })
 
-blinkapp.get("/api/user/info/classes/:username", (req, res) => { // See what classes a student is in
+blinkapp.get("/api/user/info/classes/:username", (req, res) => { // See what classes a user is in or hosts
     let username = req.params.username
-    if (users[username]) { // If user exists
-        res.json( users[username]["classes"] )
-    }else{ // No user found
-        res.json("non-existant")
+    if(users[username]) { // If valid user
+        if (users[username]["permission"] == "Admin") {
+            res.json(classes)
+        }else if(users[username]["permission"] == "Teacher") {
+            let newClasses = {}
+            for (const [classname, table] of Object.entries(classes)) {
+                if (table["teacher"] == username) {  
+                    newClasses[classname] = table
+                }
+            }
+            res.json(newClasses)
+        }else if(users[username]["permission"] == "Student") {
+            res.json( users[username]["classes"] )
+        }
+    }else{ // Invalid user
+        res.json("Invalid user!")
     }
 })
 
@@ -227,7 +239,7 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
     ------------------
 */
 
-blinkapp.get("/api/admin/set/role/:role/:username", (req, res) => { // See what classes a student is in
+blinkapp.get("/api/admin/set/role/:role/:username", (req, res) => { // Set the role of a user
     let role = req.params.role
     let username = req.params.username
     if (users[username]) { // If user exists
@@ -238,7 +250,7 @@ blinkapp.get("/api/admin/set/role/:role/:username", (req, res) => { // See what 
     }
 })
 
-blinkapp.get("/api/admin/set/teacher/:class/:username", (req, res) => { // See what classes a student is in
+blinkapp.get("/api/admin/set/teacher/:class/:username", (req, res) => { // Set the teacher of a specific classroom
     let username = req.params.username
     let newclass = req.params.class
 

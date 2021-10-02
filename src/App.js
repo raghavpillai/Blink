@@ -29,9 +29,7 @@ export default function App() {
           <div className="border-2 p-3 mx-2">
             <Link to="/test">Test</Link>
           </div>
-          <div className="border-2 p-3 mx-2">
-            <Link to="/login">Login</Link>
-          </div>
+          
         </div>
       </div>
 
@@ -60,3 +58,4 @@ export default function App() {
     </Router>
   );
 }
+

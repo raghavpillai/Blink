@@ -22,7 +22,7 @@ var classes = { // ID: { questionNumber[int]: { questionID[int]: usersCompleted[
         teacher: "testTeacher",
         name: "testClass",
         desc: "testDesc",
-        dates: "M/W/F 11:30AM-12:30AM"
+        dates: "M/W/F 11:30AM-12:30AM",
 
         // Current question
         active: false, // if question is still valid

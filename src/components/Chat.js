@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
 
-function Test(){
+function Chat(){
     return(
         <div>
             <Helmet>
@@ -16,4 +16,4 @@ function Test(){
     )
 }
 
-export default Test;
+export default Chat;

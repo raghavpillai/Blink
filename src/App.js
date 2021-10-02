@@ -33,7 +33,6 @@ export default function App() {
             <Link to="/login">Login</Link>
           </div>
         </div>
-
       </div>
 
       <hr />

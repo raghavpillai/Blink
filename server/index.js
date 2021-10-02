@@ -34,6 +34,7 @@ var classes = { // ID: { questionNumber[int]: { questionID[int]: usersCompleted[
         answeredStudents: { // students who have answered (username[string]: answerchoice[boolean/string])
             //"username": true
         },
+        questionHolder: {},
 
 
         // Misc. 
@@ -43,11 +44,48 @@ var classes = { // ID: { questionNumber[int]: { questionID[int]: usersCompleted[
                 username: username
             }*/
         },
+        
+        hands: {
+            //"username": true
+        }
+    }/*,
+
+    test: {
+        // Class attributes
+        teacher: "testTeacher",
+        name: "testClass",
+        desc: "testDesc",
+
+        // Current question
+        active: false, // if question is still valid
+        startTime: 1633168636, // time in unix 
+        question: "What is 1 + 1?", // question
+        time: 20, // time (in seconds) to be valid
+        answers: { // questions (answer[string]: valid[boolean])
+            "2": true, "5": false, "3": false, "1": false
+        },
+        answeredStudents: { // students who have answered (username[string]: answerchoice[boolean/string])
+            //"username": true
+        },
+        questionHolder: {
+            1: {
+                time: 100,
+                question: "What is 1 + 1",
+                answers: { "2": true, "5": false, "3": false, "1": false },
+                answeredStudents: { "username1": true, "username2": true, "username3": true, "username4": true }
+            }
+        },
+
+
+        // Misc. 
+        questions: { // silent questions by student (username[string]: question[string])
+            
+        },
 
         hands: {
             //"username": true
         }
-    }
+    }*/
 }
 
 function findStudentResponse(idTable, username) { // Find student response from question (input answeredstudents, username)
@@ -76,9 +114,12 @@ function seeClassRoster(classID) { // See class roster (input class ID), returns
     ------------------
 */
 
-blinkapp.get("/api/class/end/:class"), (req, res) => { // Ending class for analytics
-
-};
+blinkapp.get("/api/class/end/:class", (req, res) => { // Ending class for analytics
+    let classid = req.params.class
+    let questions = [classes[classid]["questionHolder"]]
+    
+    res.json(questions)
+})
 
 blinkapp.get("/api/class/hand/:class/:username/:value", (req, res) => { // Put hand up or down
     let classid = req.params.class
@@ -242,6 +283,13 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
 
         setTimeout(function () { // Delayed function
             classes[room]["active"] = false
+
+            classes[room]["questionholder"][classes[room]["questionholder"].length] = {
+                time: classes[room]["startTime"],
+                question: classes[room]["question"],
+                answers: classes[room]["answers"],
+                answeredStudents: classes[room]["answeredStudents"]
+            }
         }, obj.time * 1000); // Time for question (seconds) * 1000 ms
         res.json(true)
     }

@@ -1,10 +1,10 @@
 import React from "react";
-import Call from './Call'
+import VideoApp from './VideoApp/VideoApp'
 
 function Test(){
     return(
         <div className = "bg-red-200">
-            <Call />
+            <VideoApp />
         </div>
     )
 }

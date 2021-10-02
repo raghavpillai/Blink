@@ -17,7 +17,7 @@ var users = {
 }
 
 var classes = { // ID: { questionNumber[int]: { questionID[int]: usersCompleted[int][] } }
-    5: {
+    math8: {
         // Class attributes
         teacher: "testTeacher",
         name: "testClass",

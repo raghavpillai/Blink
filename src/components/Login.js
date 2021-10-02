@@ -8,6 +8,7 @@ function Login(){
     return(
         
         <div className = "h-screen bg-red-200 flex justify-center items-center s"> 
+            <title>Log in to Blink</title>
             <div className = "bg-white h-4/6 w-1/4 rounded-2xl flex justify-center">
                 <div className = "py-10 px-5">
                     <div className = "text-5xl font-extrabold">

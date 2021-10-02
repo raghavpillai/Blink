@@ -1,11 +1,12 @@
 import React from "react";
-import "./OrgContents.css";
+import "../styles/OrgContents.css";
 import ClassItem from "./ClassItem";
 import img from "../images/class.jpg"
 
 function Cards() {
   return (
     <div className="cards h-screen">
+      <title>Organizations</title>
       <p>My classes</p>
       <div className="cards__container">
         <div className="cards__wrapper">

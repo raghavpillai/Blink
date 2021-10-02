@@ -4,6 +4,8 @@ import LogoText from "../images/LogoB.png";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Navbar from './Navbar';
+
 function Home() {
 
     const callback = function (entries) {
@@ -29,6 +31,7 @@ function Home() {
 
     return (
         <div>
+            <Navbar/>
             <title>Blink - Intuitive Learning</title>
             <div className="h-screen bg-red-200">
                 <div className="absolute top-4/10 left-1/2 transform -translate-x-1/4">

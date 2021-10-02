@@ -1,9 +1,12 @@
 import React from "react";
-import VideoApp from './VideoApp/VideoApp'
+import VideoApp from './VideoApp/VideoApp';
+import Navbar from './Navbar';
+
 
 function Test(){
     return(
-        <div className = "bg-red-200">
+        <div className = "">
+            <Navbar/>
             <VideoApp />
         </div>
     )

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
  
 import Test from './components/Test';
 import Chat from './components/Chat';
+import Home from './components/Home';
 // import Error from './components/Error';
 // import Navigation from './components/Navigation';
  
@@ -13,7 +14,8 @@ class App extends Component {
         <div>
           {/* <Navigation /> */}
             <Switch>
-             <Route path="/" component={Test} exact/>
+              <Route path="" component={Home} exact/>
+             <Route path="/" component={Home} exact/>
              <Route path="/test" component={Test} exact/>
              <Route path="/chat" component={Chat} exact/>
             <Route component={Error}/>

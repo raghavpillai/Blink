@@ -76,6 +76,10 @@ function seeClassRoster(classID) { // See class roster (input class ID), returns
     ------------------
 */
 
+blinkapp.get("/api/class/end/:class"), (req, res) => { // Ending class for analytics
+    
+})
+
 blinkapp.get("/api/class/hand/:class/:username/:value", (req, res) => { // Put hand up or down
     let classid = req.params.class
     let username = req.params.username
@@ -177,6 +181,15 @@ blinkapp.get("/api/user/info/classes/:username", (req, res) => { // See what cla
         }else if(users[username]["permission"] == "Student") {
             res.json( users[username]["classes"] )
         }
+    }else{ // Invalid user
+        res.json("Invalid user!")
+    }
+})
+
+blinkapp.get("/api/user/info/overview/:username", (req, res) => { // See what classes a user is in or hosts
+    let username = req.params.username
+    if(users[username]) { // If valid user
+        res.json(users[username]) // Return user data
     }else{ // Invalid user
         res.json("Invalid user!")
     }

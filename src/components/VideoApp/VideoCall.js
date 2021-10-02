@@ -47,14 +47,16 @@ export default function VideoCall(props) {
           return prevUsers.filter((User) => User.uid !== user.uid);
         });
       });
-
+      
+      let joined = false
       try {
         await client.join(config.appId, name, config.token, null);
+        joined = true
       } catch (error) {
         console.log("error");
       }
 
-      if (tracks) await client.publish([tracks[0], tracks[1]]);
+      if (tracks && joined) await client.publish([tracks[0], tracks[1]]);
       setStart(true);
     };
 

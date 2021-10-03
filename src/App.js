@@ -11,6 +11,9 @@ import Signup from './components/Signup';
 import StudentView from './components/StudentView';
 import TeacherView from './components/TeacherView';
 import TeacherQuestion from './components/TeacherQuiz'
+import Enroll from './components/Enroll'
+import SeeClass from './components/SeeClass'
+import StudentQuestion from './components/StudentQuiz';
 
 
 export default function App() {
@@ -69,6 +72,15 @@ export default function App() {
         </Route>
         <Route path="/teacherquestion">
           <TeacherQuestion />
+        </Route>
+        <Route path="/enroll">
+          <Enroll />
+        </Route>
+        <Route path="/seeclass">
+          <SeeClass />
+        </Route>
+        <Route path="/studentquestion">
+          <StudentQuestion />
         </Route>
       </Switch>
     </Router>

@@ -7,6 +7,7 @@ import Organizations from './components/Organizations';
 import Test from './components/Test';
 import Call from './components/Call';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import StudentView from './components/StudentView';
 import TeacherView from './components/TeacherView';
 import TeacherQuestion from './components/TeacherQuiz'
@@ -56,6 +57,9 @@ export default function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
         </Route>
         <Route path="/studentview">
           <StudentView />

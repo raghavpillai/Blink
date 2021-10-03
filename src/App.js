@@ -7,12 +7,13 @@ import Organizations from './components/Organizations';
 import Test from './components/Test';
 import Call from './components/Call';
 import Login from './components/Login';
+import StudentView from './components/StudentView';
 
 
 export default function App() {
   return (
     <Router>
-      <div className="flex text-2xl justify-between border-2 border-black border-solid">
+      {/* <div className="flex text-2xl justify-between border-2 border-black border-solid">
         <div className="border-2 p-3 mx-2 justify-self-start">
           <Link to="/">Home</Link>
         </div>
@@ -29,11 +30,9 @@ export default function App() {
           <div className="border-2 p-3 mx-2">
             <Link to="/test">Test</Link>
           </div>
-          <div className="border-2 p-3 mx-2">
-            <Link to="/login">Login</Link>
-          </div>
+          
         </div>
-      </div>
+      </div> */}
 
       <hr />
 
@@ -56,7 +55,11 @@ export default function App() {
         <Route path="/login">
           <Login />
         </Route>
+        <Route path="/studentview">
+          <StudentView />
+        </Route>
       </Switch>
     </Router>
   );
 }
+

@@ -4,6 +4,8 @@ import LogoText from "../images/LogoB.png";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Navbar from './Navbar';
+
 function Home() {
 
     const callback = function (entries) {
@@ -29,11 +31,15 @@ function Home() {
 
     return (
         <div>
+            <Navbar/>
             <title>Blink - Intuitive Learning</title>
             <div className="h-screen bg-red-200">
                 <div className="absolute top-4/10 left-1/2 transform -translate-x-1/4">
                     <img className="w-1/2" src={LogoText} alt="Blink" />
                 </div>
+                <Link to="/login" className = "absolute left-1/2 top-3/4 transform -translate-x-1/2 bg-blue-200 px-10 py-2 rounded-full text-2xl">
+                    Login
+                </Link>
             </div>
             <div className="h-screen bg-gradient-to-b from-red-200 to-white flex flex-col items-center">
                 <div className="mt-20 mb-10 text-4xl font-bold"> About us</div>

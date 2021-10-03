@@ -1,48 +1,33 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-function Login() {
-    const { register, handleSubmit } = useForm();
-    const [result, setResult] = useState("");
-    const onSubmit = (data) => setResult(JSON.stringify(data));
+
+export default function Login() {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        // this does work
+        // const loginAPI = `http://localhost:4000/api/user/login/user1/pass1`;
+        // fetch(loginAPI, { mode: 'cors' })
+        //     .then((response) => response.json())
+        //     .then((response) => console.log(response))
+        console.log(data.username)
+        console.log(data.password)
+    }
+
     return (
-
-        <div>
-            <Navbar />
-            <div className="h-screen bg-red-200 flex justify-center items-center s">
-                <div className="bg-white h-4/6 lg:w-1/4 w:1/2 rounded-2xl flex justify-center">
-                    <div className="py-10 px-5">
-                        <div className="text-3xl lg:text-5xl font-extrabold">
-                            Login
-                        </div>
-                        <div className="text-s mt-2">
-                            Please sign in to enter class
-                        </div>
-                        <form className="text-xl" onSubmit={handleSubmit(onSubmit)}>
-                            <label>
-
-                                <br />
-                                <input className="border text-grey-darkest rounded-md mt-7 mb-5"
-                                    {...register("username")} placeholder="username"
-                                />
-                            </label>
-                            <label>
-
-                                <br />
-                                <input className="border text-grey-darkest rounded-md mb-10"
-                                    {...register("password")} placeholder="password"
-                                />
-                            </label>
-                            <p className="text-xs">{result}</p>
-                            <Link to="/organizations" className="bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-2xl px-3 py-2">Submit</Link>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+        <div className="h-screen bg-red-200 flex justify-center items-center">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-80 bg-white rounded px-4 py-8">
+                <h2 className="text-3xl mb-4">Login</h2>
+                {/* register your input into the hook by invoking the "register" function */}
+                <label htmlFor="username" className="mb-10">Username:</label>
+                <input {...register("username")} id="username" placeholder="username" className="border text-grey-darkest rounded-md mb-10 p-2" /><br />
+                {/* include validation with required or other standard HTML validation rules */}
+                <label htmlFor="password" className="mb-5">Password</label>
+                <input {...register("password", { required: true })} id="password" placeholder="password" className="border text-grey-darkest rounded-md mb-10 p-2" /><br />
+                {/* errors will return when field validation fails  */}
+                {errors.exampleRequired && <span>This field is required</span>}
+                <input type="submit" value="Submit" className="bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-2xl px-3 py-2" />
+            </form>
         </div>
-    )
+    );
 }
-
-export default Login;

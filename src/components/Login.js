@@ -11,9 +11,7 @@ export default function Login() {
         axios.get("http://localhost:4000/api/user/login/" + data.username + "/" + data.password)
             .then((response) => {
                 console.log(response)
-                if (response.data == 'FAILED') {
-                    return
-                } else {
+                if (response.data == 'PASSED') {
                     history.push('/organizations')
                 }
             });

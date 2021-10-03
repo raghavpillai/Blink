@@ -14,6 +14,7 @@ import TeacherQuestion from './components/TeacherQuiz'
 import Enroll from './components/Enroll'
 import SeeClass from './components/SeeClass'
 import StudentQuestion from './components/StudentQuiz';
+import AskQuestion from './components/AskQuestion'
 
 
 export default function App() {
@@ -79,6 +80,9 @@ export default function App() {
         </Route>
         <Route path="/studentquestion">
           <StudentQuestion />
+        </Route>
+        <Route path="/askquestion">
+          <AskQuestion />
         </Route>
       </Switch>
     </Router>

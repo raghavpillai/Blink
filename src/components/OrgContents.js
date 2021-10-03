@@ -15,19 +15,19 @@ function Cards() {
               src={img}
               text="Mathematics / 11:30 - 12:30"
               label="Mrs. BJÖRKSNÄS"
-              path="https://hypixel.net"
+              path="/studentview"
             />
             <ClassItem
               src={img}
               text="Science / 1:00 - 2:00"
               label="Mr. FJÄDERMOLN"
-              path="https://hypixel.net"
+              path="/studentview"
             />
             <ClassItem
               src={img}
               text="English / 9:30 - 10:30"
               label="Mr. FRÖJERED"
-              path="https://hypixel.net"
+              path="/studentview"
             />
           </ul>
         </div>

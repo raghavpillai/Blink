@@ -10,7 +10,7 @@ export default function Video(props) {
     setGridSpacing(Math.max(Math.floor(12 / (users.length + 1)), 4));
   }, [users, tracks]);
 
-  return (
+   return (
     <Grid container style={{ height: "100%" }}>
       <Grid item xs={gridSpacing}>
         <AgoraVideoPlayer
@@ -22,7 +22,9 @@ export default function Video(props) {
         users.map((user) => {
           if (user.videoTrack) {
             return (
-              <Grid item xs={gridSpacing}>
+              <Grid item xs={gridSpacing}
+                key={user.uid}
+                >
                 <AgoraVideoPlayer
                   videoTrack={user.videoTrack}
                   key={user.uid}

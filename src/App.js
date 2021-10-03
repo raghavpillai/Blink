@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Chat from './components/Chat';
+import MessageWrapper from './components/ChatApp/MessageWrapper';
 import Home from './components/Home';
 import Organizations from './components/Organizations';
 import Test from './components/Test';
 import Call from './components/Call';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import StudentView from './components/StudentView';
 import TeacherView from './components/TeacherView';
 import TeacherQuestion from './components/TeacherQuiz'
@@ -43,7 +44,7 @@ export default function App() {
           <Home />
         </Route>
         <Route path="/chat">
-          <Chat />
+          <MessageWrapper />
         </Route>
         <Route path="/organizations">
           <Organizations />
@@ -56,6 +57,9 @@ export default function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
         </Route>
         <Route path="/studentview">
 

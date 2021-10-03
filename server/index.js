@@ -210,14 +210,14 @@ blinkapp.get("/api/user/create/:username/:password/:displayname", (req, res) => 
     let displayName = req.params.displayname
 
     if (users[username]) { // If user exists
-        res.json("USER_EXISTS")
+        res.json("FAILED")
     } else { // No user found
         users[username] = {}
         users["displayName"] = displayName
         users["password"] = password
         users["classes"] = []
 
-        res.json("USER_CREATED")
+        res.json(users[username])
     }
 })
 

@@ -9,6 +9,7 @@ import Call from './components/Call';
 import Login from './components/Login';
 import StudentView from './components/StudentView';
 import TeacherView from './components/TeacherView';
+import TeacherQuestion from './components/TeacherQuiz'
 
 
 export default function App() {
@@ -61,6 +62,9 @@ export default function App() {
         </Route>
         <Route path="/teacherview">
           <TeacherView />
+        </Route>
+        <Route path="/teacherquestion">
+          <TeacherQuestion />
         </Route>
       </Switch>
     </Router>

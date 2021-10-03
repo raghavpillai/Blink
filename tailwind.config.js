@@ -20,6 +20,14 @@ module.exports = {
           "100%": { opacity: 1 }
         }
       },
+      scale: {
+        '275': '2.75',
+        '365':'3.65',
+      },
+      translate: {
+        '150': '150%',
+        'xtip': "128%",
+      },
     },
   },
   variants: {

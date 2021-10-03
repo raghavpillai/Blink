@@ -8,6 +8,7 @@ import Test from './components/Test';
 import Call from './components/Call';
 import Login from './components/Login';
 import StudentView from './components/StudentView';
+import TeacherView from './components/TeacherView';
 
 
 export default function App() {
@@ -57,6 +58,9 @@ export default function App() {
         </Route>
         <Route path="/studentview">
           <StudentView />
+        </Route>
+        <Route path="/teacherview">
+          <TeacherView />
         </Route>
       </Switch>
     </Router>

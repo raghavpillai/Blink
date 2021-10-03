@@ -1,6 +1,6 @@
 import React from "react";
 import avatar from '../images/emptyAvatar.png';
-import mike from '../images/mike.jpeg';
+import math from '../images/math.jpeg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import AgoraRTC from 'agora-rtc-sdk-ng';
@@ -30,23 +30,31 @@ export function StudentView(){
     }
 
     return(
-        <div className = "flex flex-wrap flex-grow max-h-screen ">
+        <div className = "flex flex-wrap flex-grow max-h-screen overflow-hidden">
 
             <section id="mainContent" className="flex flex-wrap lg:w-4/5 w-3/4">
                 
                 <div className="w-full h-4/5">
-                    <div className="h-full bg-no-repeat bg-cover"style={{ backgroundImage: `url(${mike})` }}>
-                        <div className='button-group'>
-                            <button id='join' type='button' className='px-3 py-2 bg-green-300 text-sm mx-4 mt-3 rounded-md '  disabled={joinState} onClick={() => {join(appid, channel, token)}}>Join</button>
-                            {/* <button id='leave' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md' disabled={!joinState} onClick={() => {leave()}}>Leave</button> */}
-                            <button id='leave' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md '  onClick={routeChange}>Leave</button>
-                            {/* <button id='leave' type='button' className="px-3 py-2 bg-red-400 text-sm mt-3 rounded-md"> */}
-                                {/* <Link to="/organizations">Leave</Link>
-                            </button> */}
+                    <div className="h-full bg-no-repeat bg-cover"style={{ backgroundImage: `url(${math})` }}>
+                        <div className = "w-full bg-gray-600 flex items-center justify-between px-4">
+                            <div className='button-group mb-2'>
+                                <button id='join' type='button' className='px-3 py-2 bg-green-300 text-sm mx-4 mt-3 rounded-md'  disabled={joinState} onClick={() => {join(appid, channel, token)}}>Join</button>
+                                {/* <button id='leave' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md' disabled={!joinState} onClick={() => {leave()}}>Leave</button> */}
+                                <button id='leave' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md '  onClick={routeChange}>Leave</button>
+                                {/* <button id='leave' type='button' className="px-3 py-2 bg-red-400 text-sm mt-3 rounded-md"> */}
+                                    {/* <Link to="/organizations">Leave</Link>
+                                </button> */}
+                            </div>
+                            <div>
+                                <div className="mb-2">
+                                    <button id='question' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md '  onClick={routeChange}>Create Quiz</button>
+                                </div>
+                                <div></div>
+                            </div>
                         </div>
                     </div>
                     <div className='player-container '>
-                        <div className='local-player-wrapper  scale-x-365 scale-y-275'>
+                        <div className='local-player-wrapper absolute transform -translate-y-20 -translate-x-20 scale-75'>
                         <p className='local-player-text'>{localVideoTrack && `localTrack`}{joinState && localVideoTrack ? `(${client.uid})` : ''}</p>
                         <MediaPlayer videoTrack={localVideoTrack} audioTrack={undefined}></MediaPlayer>
                         </div>

@@ -1,11 +1,22 @@
 import React from "react";
-import axios from "axios"
+import axios from "axios";
+import Username from './Username';
 
 import "../styles/OrgContents.css";
 import ClassItem from "./ClassItem";
-import img from "../images/class.jpg"
+import img from "../images/class.jpg";
 
-function Cards() {
+function Cards(prop) {
+  let classes = [];
+  const user = new Username();
+  user.name=""
+  axios.get("http://localhost:4000/api/user/info/classes/"+prop).then((response => classes))
+
+  
+
+  // axios.get("http://localhost:4000/api/class/info/"+class).then((response) => console.log(response.data));
+
+
   return (
     <div className="cards h-screen">
       <title>Organizations</title>
@@ -13,11 +24,19 @@ function Cards() {
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
-            {/* axios.get("http://localhost:4000/api/user/info/classes/"+username).then((response) => console.log(response.data)); */}
+            
+            {classes.map(elem =>(
+              <ClassItem
+              src={img}
+              text = {`${elem.name}` + " " + `${elem.date}`}
+              label = {`${elem.teacher}`}
+              />
 
-            {/* axios.get("http://localhost:4000/api/class/info/"+class).then((response) => console.log(response.data)); */}
+            ))}
 
-            <ClassItem
+            
+            
+            {/* <ClassItem
               src={img}
               text="Mathematics / 11:30 - 12:30"
               label="Mrs. BJÖRKSNÄS"
@@ -34,7 +53,7 @@ function Cards() {
               text="English / 9:30 - 10:30"
               label="Mr. FRÖJERED"
               path="/studentview"
-            />
+            /> */}
           </ul>
         </div>
       </div>

@@ -19,7 +19,7 @@ var users = {
         permission: "Student", // Admin, teacher, student
         displayName: "Raghav",
         password: "password",
-        classes: [],
+        classes: ["math8"],
     }
 }
 

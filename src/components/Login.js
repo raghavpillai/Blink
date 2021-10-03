@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import axios from "axios"
 
@@ -32,7 +32,7 @@ export default function Login() {
                 <input {...register("password", { required: true })} id="password" placeholder="password" className="border text-grey-darkest rounded-md mb-10 p-2" /><br />
                 {/* errors will return when field validation fails  */}
                 {errors.exampleRequired && <span>This field is required</span>}
-                <input type="submit" value="Submit" className="bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-2xl px-3 py-2" />
+                <input type="submit" value="Submit" className="bg-yellow-400 rounded-2xl px-3 py-2 transform hover:bg-yellow-300 active:scale-110" />
             </form>
         </div>
     );

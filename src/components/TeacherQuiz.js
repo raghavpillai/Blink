@@ -47,7 +47,7 @@ class TeacherQuiz extends React.Component{
     render(){
         
        return(
-           <div className="h-screen bg-red-200 flex justify-center items-center">
+           <div className="h-screen bg-gray-300 flex justify-center items-center">
             <form onSubmit={this.handleSubmit} className="w-80 bg-white rounded px-4 py-8">
                 <h2 className="text-3xl mb-4">Quiz</h2>
                 <label htmlFor="question" className="mb-10">Question:</label>
@@ -68,7 +68,7 @@ class TeacherQuiz extends React.Component{
                 <label htmlFor="answer" className="mb-5">Answer:</label>
                 <input value={this.state.value} onChange={this.addAnswer} id="answer" placeholder="..." className="border text-grey-darkest rounded-md mb-10 p-2" /><br />
                 
-                <input type="submit" value="Submit" className="bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-2xl px-3 py-2" />
+                <input type="submit" value="Submit" className="bg-purple-700 rounded-2xl px-3 py-2 transform hover:bg-purple-500 active:scale-110" />
             </form>
         </div>
        )

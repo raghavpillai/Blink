@@ -18,8 +18,8 @@ export default function SendMessage() {
         <div className="bg-gray-300 flex justify-center items-center">
             <form onSubmit={handleSubmit(onSubmit)} className="w-80 bg-white rounded px-4 py-8">
                 {/* register your input into the hook by invoking the "register" function */}
-                <label htmlFor="username" >Username:</label><br></br>
-                <input {...register("username")} id="username" placeholder="username" className="border text-grey-darkest rounded-md mb-10 p-2" /><br />
+                {/* <label htmlFor="username" >Username:</label><br></br>
+                <input {...register("username")} id="username" placeholder="username" className="border text-grey-darkest rounded-md mb-10 p-2" /><br /> */}
                 {/* include validation with required or other standard HTML validation rules */}
                 <label htmlFor="message">Message:</label><br></br>
                 <input {...register("message", { required: true })} id="message" placeholder="message" className="border text-grey-darkest rounded-md mb-10 p-2" /><br />

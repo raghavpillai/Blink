@@ -1,15 +1,15 @@
 import React from "react";
 import avatar from '../images/emptyAvatar.png';
-import mike from '../images/mike.jpeg';
+import math from '../images/math.jpeg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import AgoraRTC from 'agora-rtc-sdk-ng';
 import useAgora from './useAgora';
 import MediaPlayer from './MediaPlayer';
 import { useHistory } from "react-router-dom";
-import { LocalCafe } from "@mui/icons-material";
-import VideoApp from './VideoApp/VideoApp';
-
+import { LocalCafe, ViewSidebar } from "@mui/icons-material";
+import VideoApp from "../components/VideoApp/VideoApp";
+import MessageWrapper from "./ChatApp/MessageWrapper";
 
 const client = AgoraRTC.createClient({ codec: 'h264', mode: 'rtc' });
 
@@ -32,55 +32,27 @@ export function StudentView() {
     }
 
     return (
-        <div className="flex flex-wrap flex-grow max-h-screen overflow-hidden">
-
-            <section id="mainContent" className="flex flex-wrap lg:w-4/5 w-3/4">
-
-                <div className="w-full h-4/5">
-                    <div className="h-full bg-no-repeat bg-cover" style={{ backgroundImage: `url(${mike})` }}>
-                        <div className='button-group'>
-                            <button id='join' type='button' className='px-3 py-2 bg-green-300 text-sm mx-4 mt-3 rounded-md' disabled={joinState} onClick={() => { join(appid, channel, token) }}>Join</button>
-                            {/* <button id='leave' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md' disabled={!joinState} onClick={() => {leave()}}>Leave</button> */}
-                            <button id='leave' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md' onClick={routeChange}>Leave</button>
-                            {/* <button id='leave' type='button' className="px-3 py-2 bg-red-400 text-sm mt-3 rounded-md"> */}
-                            {/* <Link to="/organizations">Leave</Link>
-                            </button> */}
-                        </div>
-                    </div>
-                    <div className='player-container'>
-                        <div className='local-player-wrapper absolute transform -translate-y-20 -translate-x-20 scale-75'>
-                            <p className='local-player-text'>{localVideoTrack && `localTrack`}{joinState && localVideoTrack ? `(${client.uid})` : ''}</p>
-                            <MediaPlayer videoTrack={localVideoTrack} audioTrack={undefined}></MediaPlayer>
-                        </div>
-                        {remoteUsers.map(user => (<div className='remote-player-wrapper' key={user.uid}>
-                            <p className='remote-player-text'>{`remoteVideo(${user.uid})`}</p>
-                            <MediaPlayer videoTrack={user.videoTrack} audioTrack={user.audioTrack}></MediaPlayer>
-                        </div>))}
-                    </div>
+        <div className="flex justify-between h-screen">
+            <section className="bg-blue-400 h-full w-4/5">
+                <div className="border-black border-2 border-solid h-4/5 overflow-hidden">
+                    <VideoApp></VideoApp>
                 </div>
-                <div className="w-full h-1/5 bg-yellow-200 flex grid grid-cols-6">
-                    <img className="object-scale-down" src={avatar} alt="avatar" />
-                    <img className="object-scale-down" src={avatar} alt="avatar" />
-                    <img className="object-scale-down" src={avatar} alt="avatar" />
-                    <img className="object-scale-down" src={avatar} alt="avatar" />
-                    <img className="object-scale-down" src={avatar} alt="avatar" />
-                    <img className="object-scale-down" src={avatar} alt="avatar" />
-                    {/* <img className="object-scale-down" src={avatar} alt="avatar" /> */}
-                    {/* <img className="object-scale-down" src={avatar} alt="avatar" /> */}
+                <div className="bg-red-200 border-solid h-1/5 flex justify-between">
+                    <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
+                    <div ssName="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
+                    <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
+                    <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
+                    <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
+                    <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
+                    <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
                 </div>
             </section>
+            <aside className="bg-blue-200 h-screen w-1/5">
+                <h2 className="text-3xl text-center m-3">Class Chat</h2>
+                <MessageWrapper></MessageWrapper>
 
-            <section
-                id="ghost"
-                className="flex justify-center h-screen sticky top-0 right-0 lg:w-1/5 w-1/4 bg-blue-200"
-            ></section>
 
-            <section
-                id="Sidebar"
-                className="h-screen fixed top-0 right-0 border-l-2 border-gray-600 lg:w-1/5 w-1/4 text-xs lg:text-sm text-center"
-            >
-
-            </section>
+            </aside>
         </div>
     )
 }

@@ -19,7 +19,7 @@ export function StudentView() {
     const [token, setToken] = useState('');
     const [channel, setChannel] = useState('');
     const {
-        localAudioTrack, localVideoTrack, leave, join, joinState, remoteUsers
+        localAudioTrack, localVideoTrack, leave, join, jxoinState, remoteUsers
     } = useAgora(client);
 
     const history = useHistory();
@@ -36,7 +36,9 @@ export function StudentView() {
             <section className="bg-blue-400 h-full w-4/5">
                 <div className="border-black border-2 border-solid h-4/5 overflow-hidden">
                     <VideoApp></VideoApp>
+
                 </div>
+                <Link to="/teacherquestion" target="_blank "className="bg-green-400 px-4 py-2 rounded absolute top-1 right-96">Create Quiz</Link>
                 <div className="bg-red-200 border-solid h-1/5 flex justify-between">
                     <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>
                     <div className="bg-yellow-200 h-48 w-48"><img className="object-scale-down" src={avatar} alt="avatar" /></div>

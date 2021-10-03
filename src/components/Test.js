@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 function Test(){
     return(
         <div className = "">
-            <Navbar/>
+            <Navbar />
             <VideoApp />
         </div>
     )

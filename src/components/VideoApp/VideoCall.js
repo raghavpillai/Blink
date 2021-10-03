@@ -53,7 +53,7 @@ export default function VideoCall(props) {
         await client.join(config.appId, name, config.token, null);
         joined = true
       } catch (error) {
-        console.log("error");
+        console.log(error);
       }
 
       if (tracks && joined) await client.publish([tracks[0], tracks[1]]);

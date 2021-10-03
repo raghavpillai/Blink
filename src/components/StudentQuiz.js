@@ -13,12 +13,6 @@ class Quiz extends React.Component {
     
     
 
-<<<<<<< Updated upstream
-    render() {
-        return (<div>
-
-        </div>)
-=======
     render(){
         axios.get("http://localhost:4000/api/question/check/" + "math8" + "/" + username).then((response => console.log(response.data)))
 
@@ -43,13 +37,8 @@ class Quiz extends React.Component {
                 </div>
             </div>
         )
->>>>>>> Stashed changes
     }
 
 }
 
-<<<<<<< Updated upstream
 export default Quiz
-=======
-export default Quiz;
->>>>>>> Stashed changes

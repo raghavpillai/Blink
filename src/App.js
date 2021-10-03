@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Chat from './components/Chat';
+import MessageWrapper from './components/ChatApp/MessageWrapper';
 import Home from './components/Home';
 import Organizations from './components/Organizations';
 import Test from './components/Test';
@@ -47,7 +47,7 @@ export default function App() {
           <Home />
         </Route>
         <Route path="/chat">
-          <Chat />
+          <MessageWrapper />
         </Route>
         <Route path="/organizations">
           <Organizations />
@@ -65,9 +65,7 @@ export default function App() {
           <Signup />
         </Route>
         <Route path="/studentview">
-          <StudentView />
-        </Route>
-        <Route path="/teacherview">
+
           <TeacherView />
         </Route>
         <Route path="/teacherquestion">

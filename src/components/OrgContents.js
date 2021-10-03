@@ -9,10 +9,10 @@ import img from "../images/class.jpg";
 function Cards(prop) {
   let classes = [];
   const user = new Username();
-  user.name=""
-  axios.get("http://localhost:4000/api/user/info/classes/"+prop).then((response => classes))
+  user.name = ""
+  axios.get("http://localhost:4000/api/user/info/classes/" + prop).then((response => classes))
 
-  
+
 
   // axios.get("http://localhost:4000/api/class/info/"+class).then((response) => console.log(response.data));
 
@@ -24,19 +24,19 @@ function Cards(prop) {
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
-            
-            {classes.map(elem =>(
+
+            {/* {classes.map(elem => (
               <ClassItem
-              src={img}
-              text = {`${elem.name}` + " " + `${elem.date}`}
-              label = {`${elem.teacher}`}
+                src={img}
+                text={`${elem.name}` + " " + `${elem.date}`}
+                label={`${elem.teacher}`}
               />
 
-            ))}
+            ))} */}
 
-            
-            
-            {/* <ClassItem
+
+
+            <ClassItem
               src={img}
               text="Mathematics / 11:30 - 12:30"
               label="Mrs. BJÖRKSNÄS"
@@ -53,7 +53,7 @@ function Cards(prop) {
               text="English / 9:30 - 10:30"
               label="Mr. FRÖJERED"
               path="/studentview"
-            /> */}
+            />
           </ul>
         </div>
       </div>

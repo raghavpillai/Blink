@@ -195,7 +195,7 @@ blinkapp.get("/api/user/login/:username/:password", (req, res) => { // User logi
 
     if (users[username]) { // If user exists
         if (users[username]["password"] == password) { // Password is right
-            res.json(users[username])
+            res.json('PASSED')
         } else { // Incorrect ID
             res.json("FAILED")
         }

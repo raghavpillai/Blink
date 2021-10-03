@@ -1,12 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Redirect, useHistory } from "react-router-dom";
+
 import axios from "axios"
 
 export default function Login() {
+    const history = useHistory();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.get("http://localhost:4000/api/user/login/"+data.username+"/"+data.password).then((response) => console.log(response.data));
+        axios.get("http://localhost:4000/api/user/login/" + data.username + "/" + data.password)
+            .then((response) => {
+                console.log(response)
+                history.push('/organizations')
+            });
     }
 
     return (

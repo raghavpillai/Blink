@@ -52,7 +52,7 @@ var classes = { // ID: { questionNumber[int]: { questionID[int]: usersCompleted[
                 username: username
             }*/
         },
-        
+
         hands: {
             //"username": true
         },
@@ -126,13 +126,13 @@ function seeClassRoster(classID) { // See class roster (input class ID), returns
 blinkapp.get("/api/class/end/:class", (req, res) => { // Ending class for analytics
     let classid = req.params.class
     let questions = [classes[classid]["questionHolder"]]
-    
+
     res.json(questions)
 })
 
 blinkapp.get("/api/class/info/:class", (req, res) => { // See class info
     let classid = req.params.class
-    
+
     res.json(classes[classid])
 })
 
@@ -197,10 +197,10 @@ blinkapp.get("/api/user/login/:username/:password", (req, res) => { // User logi
         if (users[username]["password"] == password) { // Password is right
             res.json(users[username])
         } else { // Incorrect ID
-            res.json("WRONG_PASS")
+            res.json("FAILED")
         }
     } else { // No user found
-        res.json("WRONG_NAME")
+        res.json("FAILED")
     }
 })
 
@@ -321,22 +321,22 @@ blinkapp.get("/api/messaging/create/:class/:username/:message", (req, res) => { 
     let newclass = req.params.class
     let username = req.params.username
     let message = req.params.message
-    
+
     if (classes[newclass]) {
         let user = users[username]
         classes[newclass]["messages"].push({ user, message })
         res.json("Sent!")
-    }else{
+    } else {
         res.json("Class does not exist!")
     }
 })
 
 blinkapp.get("/api/messaging/pull/:class", (req, res) => { // Pulls messages from class
     let newclass = req.params.class
-    
+
     if (classes[newclass]) {
         res.json(classes[newclass]["messages"])
-    }else{
+    } else {
         res.json("Class does not exist!")
     }
 })

@@ -4,22 +4,16 @@ export function Navbar(){
 
 
     return(
-        <div className="flex md:text-2xl text:lg justify-between bg-gradient-to-r from-yellow-400 to-yellow-100 ">
-        <div className=" p-3 mx-2 justify-self-start transition duration-500 ease-in-out transform hover:-translate-y-1">
+        <div className="flex md:text-2xl text:lg justify-between bg-gradient-to-r from-purple-700 to-pink-600 ">
+        <div className=" text-white p-3 mx-2 justify-self-start transition duration-500 ease-in-out transform hover:-translate-y-1">
           <Link to="/">Home</Link>
         </div>
         <div className="flex md:pr-3 ">
-          <div className=" md:p-3 p-2 mx-2 transition duration-500 ease-in-out transform hover:-translate-y-1">
-            <Link to="/chat">Chat</Link>
+          <div className=" text-white md:p-3 p-2 mx-2 transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <a href = "#aboutUs">About Us</a>
           </div>
-          <div className=" md:p-3 p-2 mx-2 transition duration-500 ease-in-out transform hover:-translate-y-1">
-            <Link to="/organizations">Organizations</Link>
-          </div>
-          <div className=" md:p-3 p-2 mx-2 transition duration-500 ease-in-out transform hover:-translate-y-1">
-            <Link to="/call">Call</Link>
-          </div>
-          <div className=" md:p-3 p-2 mx-2 transition duration-500 ease-in-out transform hover:-translate-y-1">
-            <Link to="/test">Test</Link>
+          <div className=" text-white md:p-3 p-2 mx-2 transition duration-500 ease-in-out transform hover:-translate-y-1">
+            <a href = "#start">Start</a>
           </div>
           
         </div>

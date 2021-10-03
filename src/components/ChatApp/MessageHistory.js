@@ -3,7 +3,7 @@ import { data } from './ChatHistory/data'
 
 export const MessageHistory = () => {
 
-    
+
 
     return(
         <ul>

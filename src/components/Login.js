@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 function Login(){
     const { register, handleSubmit } = useForm();
@@ -38,7 +39,7 @@ function Login(){
                                 />
                             </label>
                             <p className = "text-xs">{result}</p>
-                            <input className = "bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-2xl px-3 py-2" type="submit" />
+                            <Link to="/organizations" className = "bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-2xl px-3 py-2">Submit</Link>
                         </form>
                     </div> 
                 </div>

@@ -18,7 +18,7 @@ export default function VideoCall(props) {
 
   useEffect(() => {
     let init = async (name) => {
-      
+
       client.on("user-published", async (user, mediaType) => {
         await client.subscribe(user, mediaType);
         if (mediaType === "video") {
@@ -47,7 +47,7 @@ export default function VideoCall(props) {
           return prevUsers.filter((User) => User.uid !== user.uid);
         });
       });
-      
+
       let joined = false
       try {
         await client.join(config.appId, name, config.token, null);
@@ -70,14 +70,15 @@ export default function VideoCall(props) {
   }, [channelName, client, ready, tracks]);
 
   return (
-    <Grid container direction="column" style={{ height: "100%" }}>
-      <Grid item style={{ height: "5%" }}>
+    <Grid container className="bg-pink-400 h-full">
+
+      <Grid item className="bg-yellow-100 h-5/6 w-full">
+        {start && tracks && <Video tracks={tracks} users={users} />}
+      </Grid>
+      <Grid item className="bg-yellow-100 h-1/6 w-full">
         {ready && tracks && (
           <Controls tracks={tracks} setStart={setStart} setInCall={setInCall} />
         )}
-      </Grid>
-      <Grid item style={{ height: "95%" }}>
-        {start && tracks && <Video tracks={tracks} users={users} />}
       </Grid>
     </Grid>
   );

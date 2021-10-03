@@ -3,12 +3,10 @@ import VideoApp from './VideoApp/VideoApp';
 import Navbar from './Navbar';
 
 
-function Test(){
-    return(
-        <div className = "">
-            <Navbar/>
-            <VideoApp />
-        </div>
+
+function Test() {
+    return (
+        <VideoApp></VideoApp>
     )
 }
 

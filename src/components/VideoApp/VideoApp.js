@@ -5,13 +5,13 @@ function VideoApp() {
   const [inCall, setInCall] = useState(false);
 
   return (
-    <div className="App" style={{ height: "100%" }}>
+    <div className="border-2 border-green-400 border-solid h-screen">
       {inCall ? (
-        <VideoCall setInCall={setInCall} />
+        <div className="h-full w-full">
+          <VideoCall setInCall={setInCall} />
+        </div>
       ) : (
-        <button
-          onClick={() => setInCall(true)}
-        >
+        <button onClick={() => setInCall(true)} className="bg-green-400 px-4 py-2 rounded">
           Join Call
         </button>
       )}

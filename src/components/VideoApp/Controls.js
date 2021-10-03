@@ -36,29 +36,23 @@ export default function Controls(props) {
   };
 
   return (
-    <Grid container spacing={2} alignItems="center">
-      <Grid item>
-        <button
-          onClick={() => mute("audio")}
-        >
-          {trackState.audio ? <MicIcon /> : <MicOffIcon />}
-        </button>
-      </Grid>
-      <Grid item>
-        <button
-          onClick={() => mute("video")}
-        >
-          {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
-        </button>
-      </Grid>
-      <Grid item>
-        <button
-          onClick={() => leaveChannel()}
-        >
-          Leave
-          <ExitToAppIcon />
-        </button>
-      </Grid>
-    </Grid>
+    <div className="flex justify-between border-black border-solid border-2 w-1/4">
+      <button
+        onClick={() => mute("audio")}
+      >
+        {trackState.audio ? <MicIcon /> : <MicOffIcon />}
+      </button>
+      <button
+        onClick={() => mute("video")}
+      >
+        {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
+      </button>
+      <button
+        onClick={() => leaveChannel()}
+      >
+        Leave
+        <ExitToAppIcon />
+      </button>
+    </div>
   );
 }

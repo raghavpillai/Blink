@@ -8,11 +8,14 @@ export default function Login() {
     const history = useHistory();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         axios.get("http://localhost:4000/api/user/login/" + data.username + "/" + data.password)
             .then((response) => {
                 console.log(response)
-                history.push('/organizations')
+                if (response.data == 'FAILED') {
+                    return
+                } else {
+                    history.push('/organizations')
+                }
             });
     }
 

@@ -47,7 +47,7 @@ export function StudentView(){
                             </div>
                             <div>
                                 <div className="mb-2">
-                                    <button id='question' type='button' className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md '  onClick={routeChange}>Create Quiz</button>
+                                    <Link id='question' to="/teacherquestion" target="_blank" className='px-3 py-2 bg-red-400 text-sm mt-3 rounded-md ' >Create Quiz</Link>
                                 </div>
                                 <div></div>
                             </div>

@@ -13,7 +13,9 @@ function Cards() {
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
-            axios.get("http://localhost:4000/api/user/login/"+data.username+"/"+data.password).then((response) => console.log(response.data));
+            {/* axios.get("http://localhost:4000/api/user/info/classes/"+username).then((response) => console.log(response.data)); */}
+
+            {/* axios.get("http://localhost:4000/api/class/info/"+class).then((response) => console.log(response.data)); */}
 
             <ClassItem
               src={img}

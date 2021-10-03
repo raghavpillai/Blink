@@ -14,6 +14,12 @@ var users = {
         displayName: "Administrator",
         password: "password",
         classes: [],
+    },
+    "Student": {
+        permission: "Student", // Admin, teacher, student
+        displayName: "Raghav",
+        password: "password",
+        classes: [],
     }
 }
 

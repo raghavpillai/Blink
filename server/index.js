@@ -302,7 +302,7 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
     ------------------
 */
 
-blinkapp.get("/api/messaging/create/:class/:username/:message", (req, res) => { // Set the role of a user
+blinkapp.get("/api/messaging/create/:class/:username/:message", (req, res) => { // Create new message to class
     let newclass = req.params.class
     let username = req.params.username
     let message = req.params.message
@@ -310,14 +310,15 @@ blinkapp.get("/api/messaging/create/:class/:username/:message", (req, res) => { 
     if (classes[newclass]) {
         let user = users[username]
         classes[newclass]["messages"].push({ user, message })
+        res.json("Sent!")
     }else{
         res.json("Class does not exist!")
     }
 })
 
-blinkapp.get("/api/messaging/pull/:class", (req, res) => { // Set the role of a user
+blinkapp.get("/api/messaging/pull/:class", (req, res) => { // Pulls messages from class
     let newclass = req.params.class
-
+    
     if (classes[newclass]) {
         res.json(classes[newclass]["messages"])
     }else{

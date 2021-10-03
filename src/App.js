@@ -58,9 +58,7 @@ export default function App() {
           <Login />
         </Route>
         <Route path="/studentview">
-          <StudentView />
-        </Route>
-        <Route path="/teacherview">
+
           <TeacherView />
         </Route>
         <Route path="/teacherquestion">

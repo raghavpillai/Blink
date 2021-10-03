@@ -261,7 +261,7 @@ blinkapp.get("/api/question/check/:room/:username", (req, res) => { // Check for
     let username = req.params.username
 
     if (classes[room]["active"] == false) { // If class does not have active question
-        res.json(false)
+        res.json("NO_QUESTION")
     } else { // If class has active question
         const studentResponses = classes[room]["answeredStudents"]
         if (findStudentResponse(studentResponses, username)) { // If student has responded to question
@@ -280,7 +280,7 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
     console.log(obj)
 
     if (classes[room]["active"] == true) { // If question already in play
-        res.json(false)
+        res.json("QUESTION_EXISTS")
     } else { // New question attributes
         /* http://localhost:3001/api/question/create/5/{
             "question":"What is 1+1?",
@@ -290,6 +290,7 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
         */
         // Assign values to room question
         classes[room]["active"] = true
+        console.log(classes[room]["active"])
         classes[room]["startTime"] = Math.round(Date.now() / 1000) // Class time in UNIX seconds
         classes[room]["question"] = obj.question
         classes[room]["time"] = obj.time
@@ -298,8 +299,9 @@ blinkapp.get("/api/question/create/:room/:json", (req, res) => { // Create quest
 
         setTimeout(function () { // Delayed function
             classes[room]["active"] = false
+            console.log(classes[room]["active"])
 
-            classes[room]["questionholder"][classes[room]["questionholder"].length] = {
+            classes[room]["questionHolder"][[classes[room]["questionHolder"]].length] = {
                 time: classes[room]["startTime"],
                 question: classes[room]["question"],
                 answers: classes[room]["answers"],

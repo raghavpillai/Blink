@@ -6,8 +6,8 @@ import SendMessage from './SendMessage'
 function MessageWrapper() {
 
 
-    return(
-        <div>
+    return (
+        <div className="h-screen">
             <MessageHistory />
             <SendMessage />
         </div>

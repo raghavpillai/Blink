@@ -1,9 +1,9 @@
 import React from 'react'
 import { data } from './ChatHistory/data'
 
-class MessageHistory extends React.Component{
+class MessageHistory extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
 
@@ -11,19 +11,19 @@ class MessageHistory extends React.Component{
         this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
     }
 
-    forceUpdateHandler(){
+    forceUpdateHandler() {
         this.forceUpdate()
     }
 
-    componentDidMount(){
-        setInterval(this.forceUpdateHandler,1000)
+    componentDidMount() {
+        setInterval(this.forceUpdateHandler, 1000)
     }
 
-    render(){
-        return(
-            <ul>
+    render() {
+        return (
+            <ul className="bg-white h-3/6 m-4 rounded p-4">
                 {data.map((data) => {
-                    return(
+                    return (
                         <li>
                             {data.username}: {data.message}
                         </li>
@@ -33,21 +33,5 @@ class MessageHistory extends React.Component{
         )
     }
 }
-
-/**
-export const MessageHistory = () => {
-    return(
-        <ul>
-        {data.map((data) => {
-            return(
-                <li key={data.username + data.message}>
-                    {data.username}: {data.message}
-                </li>
-            )
-        })}
-        </ul>
-    )
-}
-*/
 
 export default MessageHistory

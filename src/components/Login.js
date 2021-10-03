@@ -1,16 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios"
 
 export default function Login() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        // this does work
-        // const loginAPI = `http://localhost:4000/api/user/login/user1/pass1`;
-        // fetch(loginAPI, { mode: 'cors' })
-        //     .then((response) => response.json())
-        //     .then((response) => console.log(response))
-        console.log(data.username)
-        console.log(data.password)
+        console.log(data)
+        axios.get("http://localhost:4000/api/user/login/"+data.username+"/"+data.password).then((response) => console.log(response.data));
     }
 
     return (

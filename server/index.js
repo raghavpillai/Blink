@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require('cors')
 
 const PORT = process.env.PORT || 4000;
 
@@ -123,6 +124,12 @@ blinkapp.get("/api/class/end/:class", (req, res) => { // Ending class for analyt
     res.json(questions)
 })
 
+blinkapp.get("/api/class/info/:class", (req, res) => { // See class info
+    let classid = req.params.class
+    
+    res.json(classes[classid])
+})
+
 blinkapp.get("/api/class/hand/:class/:username/:value", (req, res) => { // Put hand up or down
     let classid = req.params.class
     let username = req.params.username
@@ -158,16 +165,16 @@ blinkapp.get("/api/class/enroll/:class/:username", (req, res) => { // Enroll a s
     if (users[username]) { // If user exists
         if (classes[newClass]) {  // If class exists
             if (users[username]["classes"].includes(newClass)) {
-                res.json("Already enrolled in class!")
+                res.json("ENROLLED_ALREADY")
             } else { // User not in class
                 users[username]["classes"].push(newClass)
                 res.json(users[username]["classes"])
             }
         } else { // Class doesn't exist
-            res.json('Class does not exist!')
+            res.json('NONEXISTANT_CLASS')
         }
     } else { // User doesn't exist
-        res.json('User does not exist!')
+        res.json('NONEXISTANT_USER')
     }
 })
 
@@ -182,12 +189,12 @@ blinkapp.get("/api/user/login/:username/:password", (req, res) => { // User logi
 
     if (users[username]) { // If user exists
         if (users[username]["password"] == password) { // Password is right
-            res.json(users[username]["permission"])
+            res.json(users[username])
         } else { // Incorrect ID
-            res.json("INCORRECT ID")
+            res.json("WRONG_PASS")
         }
     } else { // No user found
-        res.json("non-existant")
+        res.json("WRONG_NAME")
     }
 })
 
@@ -197,14 +204,14 @@ blinkapp.get("/api/user/create/:username/:password/:displayname", (req, res) => 
     let displayName = req.params.displayname
 
     if (users[username]) { // If user exists
-        res.json("User exists already!")
+        res.json("USER_EXISTS")
     } else { // No user found
         users[username] = {}
         users["displayName"] = displayName
         users["password"] = password
         users["classes"] = []
 
-        res.json("User " + username + " created!")
+        res.json("USER_CREATED")
     }
 })
 
@@ -357,6 +364,8 @@ blinkapp.get("/api/admin/set/teacher/:class/:username", (req, res) => { // Set t
         res.json("User is non-existant")
     }
 })
+
+blinkapp.use(cors());
 
 blinkapp.listen(PORT, () => {
     console.log(`BLINK server listening on ${PORT}`);

@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios"
+
 import "../styles/OrgContents.css";
 import ClassItem from "./ClassItem";
 import img from "../images/class.jpg"
@@ -11,6 +13,8 @@ function Cards() {
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
+            axios.get("http://localhost:4000/api/user/login/"+data.username+"/"+data.password).then((response) => console.log(response.data));
+
             <ClassItem
               src={img}
               text="Mathematics / 11:30 - 12:30"
